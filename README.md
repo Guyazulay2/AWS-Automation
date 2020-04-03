@@ -1,1 +1,1 @@
-# Awsdeploy.py
+# aws-scripts
