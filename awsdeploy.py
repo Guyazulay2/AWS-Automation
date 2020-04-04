@@ -8,15 +8,14 @@ from time import sleep
 import requests
 import os
 
-def deploy(id,num,type,key):
+def deploy(id,num,type):
     ec2 = boto3.resource('ec2')
     instance = ec2.create_instances(
     ImageId = id,
     MinCount = 1,
     MaxCount = num,
     InstanceType=type,
-    KeyName=key,
-    GroupName='ssh')
+    KeyName="guy")
     print('New instanceID IS >>: ' + instance[0].id)
 
 
@@ -114,7 +113,7 @@ while True:
 
     elif choose == "2":
         get_key()
-        deploy(input("Enter AMI id >>:"),int(input("Enter how many machines >>:")),input("Enter type >>:"),input("Key type >>:"))
+        deploy(input("Enter AMI id >>:"),int(input("Enter how many machines >>:")),input("Enter type >>:"))
 
 
     elif choose == "3":
