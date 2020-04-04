@@ -15,7 +15,13 @@ To get started with aws services you need to install python3, and boto3 :
     
     
     
-To get services put your :
+
+Write in the command line : aws configure
+
+And it will show you that 
+
+To get services put your 
+
 
     aws_access_key_id = xxxxxxxxxxxxxxxxxxxxxxxx
 
