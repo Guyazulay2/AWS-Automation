@@ -1,7 +1,24 @@
-# aws-scripts
+# aws-scripts     
      Scripts that Deploy machines,reboot,start,stop and trrminate machines.
 
 
+# Centos
+    Install Pip :
+        yum -y update
+        yum -y install python3-pip
+    install AWSCLI :
+        pip install awscli
+    install boto3:
+        pip3 install boto3
+
+
+
+
+
+
+
+
+# Ubuntu
 To get started with aws services you need to install python3, and boto3 :
 
     sudo apt-get update
