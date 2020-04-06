@@ -20,7 +20,7 @@ def deploy(id,num,type):
 
 
 def stop():
-    id = input('Enter the id that you want to stop : ')
+    id = input('Enter the id that you want to stop >>: ')
     ids = [id]
     ec2 = boto3.resource('ec2')
     ec2.instances.filter(InstanceIds = ids).stop()
@@ -28,7 +28,7 @@ def stop():
     print("Stop successfully >>:", id)
 
 def start():
-    id = input('Enter id that you want to start : ')
+    id = input('Enter id that you want to start >>: ')
     ids = [id]
     ec2 = boto3.resource('ec2')
     ec2.instances.filter(InstanceIds = ids).start()
@@ -37,7 +37,7 @@ def start():
 
 
 def reboot():
-    id = input('Enter the ID that you want to reboot : ')
+    id = input('Enter the ID that you want to reboot >>: ')
     ids = [id]
     ec2 = boto3.resource('ec2')
     ec2.instances.filter(InstanceIds = ids).reboot()
@@ -46,7 +46,7 @@ def reboot():
     
 
 def terminate():
-    id = input('Enter the ID that you want to terminate : ')
+    id = input('Enter the ID that you want to terminate >>: ')
     ids = [id]
     ec2 = boto3.resource('ec2')
     ec2.instances.filter(InstanceIds = ids).terminate()
