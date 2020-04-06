@@ -1,5 +1,4 @@
-# aws-scripts     
-     Scripts that Deploy machines,reboot,start,stop and trrminate machines.
+Installations and connection to aws service
 
 
 # Centos
