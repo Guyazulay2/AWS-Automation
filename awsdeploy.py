@@ -86,18 +86,6 @@ def regions_name():
     return regions
 
 
-def get_services(aws_access_key,aws_secret_key,region_name):
-    session = boto3.Session(
-    aws_access_key_id=aws_access_key,
-    aws_secret_access_key=aws_secret_key,
-    region_name=region_name)
-
-    services = session.get_available_services()
-    print("Available services for: " + region_name)
-    n = 0
-    for i in services:
-        n = n + 1
-        print(str(n) + ". " + i)
 
            ######### Menu #########
 
@@ -108,8 +96,7 @@ while True:
     sleep(1)
     choose = input("Enter 1 - 10 Pls :")
     if choose == "1":
-        get_services(input("Enter aws_access_key >>:\n"),input("Enter aws_secret_key >>:\n"),input("Enter region name >>:\n"))
-
+       os.system("aws configure")
 
     elif choose == "2":
         get_key()
