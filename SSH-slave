@@ -1,0 +1,29 @@
+After you created virtual machines in aws And you want to connect with ssh from machine to machine 
+
+It writes "Permission Denied" (public key).
+##################
+
+Step 1 :
+
+(1). You need to put the [key.pem] in the second machine and give him chmod like this 
+
+  [ chmod 400 guy.pem ]
+   
+(2). After that you can connect with the following command : 
+   
+  [ ssh -i "guy.pem" ubuntu@ec2-18-224-108-201.us-east-2.compute.amazonaws.com ]
+##################
+
+Step 2 :
+
+(1). Go to [ cd .ssh ] 
+
+(2). Now create keygen by the following command : [ ssh-keygen ]
+
+Do [ cat id_rsa.pub ] And you will see the key that you created.
+
+(3). Now to to the slave machine do [ cd .ssh ] 
+
+Do [ sudo nano authorized_keys ] And copy the key you created in the previous machine.
+
+You are now allowed to do [ ssh ubuntu@IPaddress ]
