@@ -2,7 +2,6 @@
 
 import boto3
 from time import sleep
-import os
 
 def deploy(id,num,type):
     ec2 = boto3.resource('ec2')
@@ -16,14 +15,14 @@ def deploy(id,num,type):
 
 
 def stop():
-    id = input('Enter the id that you want to stop >>:')
+    id = input('Enter the ID that you want to stop >>:')
     ids = [id]
     ec2 = boto3.resource('ec2')
     ec2.instances.filter(InstanceIds = ids).stop()
 
 
 def start():
-    id = input('Enter id that you want to start >>:')
+    id = input('Enter the ID that you want to start >>:')
     ids = [id]
     ec2 = boto3.resource('ec2')
     ec2.instances.filter(InstanceIds = ids).start()
@@ -56,7 +55,12 @@ def show():
 
 
 def get_key():
-    print("These are the keys :")
+    print("""
+
+   *******************
+These are the keys :
+
+""")
     ec2 = boto3.client('ec2')
     response = ec2.describe_key_pairs()
     for i in response['KeyPairs']:
@@ -98,38 +102,30 @@ while True:
         get_key()
         deploy(input("Enter AMI id >>: "),int(input("Enter how many machines >>:")),input("Enter type >>: "))
 
-
     elif choose == "3":
         show()
         stop()
-
 
     elif choose == "4":
         show()
         start()
 
-
     elif choose == "5":
         show()
         reboot()
-
 
     elif choose == "6":
         show()
         terminate()
 
-
     elif choose == "7":
         show()
 
-
     elif choose == "8":
         get_key()
-
-
+        
     elif choose == "9":
         regions_name()
-
 
     elif choose == "10":
         print("Bye Bye")
@@ -137,4 +133,3 @@ while True:
 
     else:
         print ("enter 1-10 only !")
-
