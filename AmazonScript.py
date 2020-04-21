@@ -1,6 +1,7 @@
 #!/bin/python3
 
 import boto3
+import os
 from time import sleep
 
 def deploy(id,num,type):
