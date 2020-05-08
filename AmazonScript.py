@@ -5,7 +5,6 @@ import os
 from time import sleep
 
 def deploy(id,num,type):
-    print('Ubuntu 18.04 AMI: | ami-07c1207a9d40bc3bd\n Red Hat Enterprise Linux 8 AMI: | ami-0a54aef4ef3b5f881\nMicrosoft Windows 2019 AMI: | ami-08db69d5de9dc9245')
     ec2 = boto3.resource('ec2')
     instance = ec2.create_instances(
     ImageId = id,
@@ -102,6 +101,7 @@ while True:
 
     elif choose == "2":
         get_key()
+        print(" Ubuntu 18.04 AMI: | ami-07c1207a9d40bc3bd\n Red Hat Enterprise Linux 8 AMI: | ami-0a54aef4ef3b5f881\n Microsoft Windows 2019 AMI: | ami-08db69d5de9dc9245")
         deploy(input("Enter AMI id >>: "),int(input("Enter how many machines >>:")),input("Enter type >>: "))
 
     elif choose == "3":
