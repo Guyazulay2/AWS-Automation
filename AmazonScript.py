@@ -16,31 +16,37 @@ def deploy(id,num,type):
 
 
 def stop():
-    id = input('Enter the ID that you want to stop >>:')
-    ids = [id]
-    ec2 = boto3.resource('ec2')
-    ec2.instances.filter(InstanceIds = ids).stop()
-
+    s = int(input('how much instances do you want to Stop? :'))
+    for i in range(s):
+        id = input('Enter the id that you want to Stop >>:')
+        ids = [id]
+        ec2 = boto3.resource('ec2')
+        ec2.instances.filter(InstanceIds = ids).stop()
 
 def start():
-    id = input('Enter the ID that you want to start >>:')
-    ids = [id]
-    ec2 = boto3.resource('ec2')
-    ec2.instances.filter(InstanceIds = ids).start()
-
+    x = int(input('how much instances do you want to Start? :'))
+    for i in range(x):
+        id = input('Enter the ID that you want to Start >>:')
+        ids = [id]
+        ec2 = boto3.resource('ec2')
+        ec2.instances.filter(InstanceIds = ids).start()
 
 def reboot():
-    id = input('Enter the ID that you want to reboot >>:')
-    ids = [id]
-    ec2 = boto3.resource('ec2')
-    ec2.instances.filter(InstanceIds = ids).reboot()
+    a = int(input('how much instances do you want to Reboot? :'))
+    for i in range(a):
+        id = input('Enter the ID that you want to Reboot >>:')
+        ids = [id]
+        ec2 = boto3.resource('ec2')
+        ec2.instances.filter(InstanceIds = ids).reboot()
 
 
 def terminate():
-    id = input('Enter the ID that you want to terminate >>:')
-    ids = [id]
-    ec2 = boto3.resource('ec2')
-    ec2.instances.filter(InstanceIds = ids).terminate()
+    r = int(input('how much instances do you want to Terminate? :'))
+    for i in range(r):
+        id = input('Enter the ID that you want to Terminate >>:')
+        ids = [id]
+        ec2 = boto3.resource('ec2')
+        ec2.instances.filter(InstanceIds = ids).terminate()
 
 
 def show():
