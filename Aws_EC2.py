@@ -11,7 +11,7 @@ def Deploy(id,num,type):
     MinCount = 1,
     MaxCount = num,
     InstanceType=type,
-    KeyName="guy")
+    KeyName="guykort")
     print('New instanceID IS >>: ' + instance[0].id)
 
 def Stop():
