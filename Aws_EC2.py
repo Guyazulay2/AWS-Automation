@@ -81,10 +81,6 @@ def Regions_name():
         print(str(n) + ". " + i)
     return regions
 
-def Public_ip():
-    id = input("Enter the instance ID :")
-    print("The Public ip is :")
-    os.system("aws ec2 describe-instances --instance-ids {} --query 'Reservations[].Instances[].PublicIpAddress' --output text".format(id))
 
 ######### Menu #########
 
@@ -96,7 +92,7 @@ while True:
      *****                 ******
 """)
     print("""1|all AWS services from your account\n2|Deploy machines\n3|stop Instances\n4|start Instances\n5|reboot Instances\n
-6|Terminate Instances\n7|Show instances\n8|Show keys\n9|Show regions\n10|Show Instance Public_IP\n11|Exit""")
+6|Terminate Instances\n7|Show instances\n8|Show keys\n9|Show regions\n10|Exit""")
     sleep(1)
     choose = input("Enter your choice >>:")
     if choose == "1":
@@ -134,10 +130,6 @@ while True:
         Regions_name()
 
     elif choose == "10":
-        Show()
-        Public_ip()
-
-    elif choose == "11":
         print("ByeBye")
         break
 
