@@ -4,9 +4,9 @@ import boto3
 import os
 from time import sleep
 
-def Istall():
+def Install():
     print("<< Install packeges for AWS CLI >>")
-    os.system("sudo apt-get update && sudo apt-get install python3-pip && pip3 install boto3 && sudo apt-get install awscli && sudo apt install python3-setuptools python3-pip")
+    os.system("sudo apt-get update && sudo apt-get install python3-pip && sudo apt-get install awscli && sudo apt install python3-setuptools python3-pip")
 
 def Deploy(id,num,type):
     ec2 = boto3.resource('ec2')
@@ -15,7 +15,7 @@ def Deploy(id,num,type):
     MinCount = 1,
     MaxCount = num,
     InstanceType=type,
-    SecurityGroups='NVIDIA Deep Learning AMI-20-03-1-AutogenByAWSMP-',
+    SecurityGroupIds=["NVIDIA Deep Learning AMI-20-03-1-AutogenByAWSMP-"],
     KeyName="Newkey")
     print('New instanceID IS >>: ' + instance[0].id)
 
@@ -91,22 +91,19 @@ def Regions_name():
 
 os.system("clear")
 while True:
-    print("""
-     *****                 ******
-        ***** AWS Script *****
-     *****                 ******
-""")
+    print("** Aws EC2 script **")
     print("""1| AWS CLI\n2| Deploy machines\n3| stop Instances\n4| start Instances\n5| reboot Instances\n
-6| Terminate Instances\n7| Show instances\n8| Show keys\n9| Show regions\n10|Exit""")
+6| Terminate Instances\n7| Show instances\n8| Show keys\n9| Show regions\n10| Install Packages for AWS CLI\n11| Exit""")
     sleep(1)
+
+
     choose = input("Enter your choice >>:")
     if choose == "1":
         os.system("aws configure")
 
-
     elif choose == "2":
-        Install()
-        print("NVIDIA Deep Learning AMI : | ami-0bc1398a752880427\n  Ubuntu 18.04 AMI : | ami-07c1207a9d40bc3bd")
+        print("    NVIDIA Deep Learning AMI : | ami-0bc1398a752880427\n    Ubuntu 18.04 AMI : | ami-07c1207a9d40bc3bd")
+        print("    Instance type : g4dn.xlarge , g4dn.2xlarge , g4dn.4xlarge , p3.2xlarge")
         Deploy(input("Enter AMI id >>: "),int(input("Enter how many machines >>:")),input("Enter type >>: "))
 
     elif choose == "3":
@@ -135,6 +132,9 @@ while True:
         Regions_name()
 
     elif choose == "10":
+        Install()
+
+    elif choose == "11":
         print("Exit")
         break
 
