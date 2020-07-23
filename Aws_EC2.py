@@ -4,6 +4,10 @@ import boto3
 import os
 from time import sleep
 
+def Istall():
+    print("<< Install packeges for AWS CLI >>")
+    os.system("sudo apt-get update && sudo apt-get install python3-pip && pip3 install boto3 && sudo apt-get install awscli && sudo apt install python3-setuptools python3-pip")
+
 def Deploy(id,num,type):
     ec2 = boto3.resource('ec2')
     instance = ec2.create_instances(
@@ -101,8 +105,8 @@ while True:
 
 
     elif choose == "2":
-        Get_key()
-        print(" NVIDIA Deep Learning AMI : | ami-0bc1398a752880427\n  Ubuntu 18.04 AMI : | ami-07c1207a9d40bc3bd")
+        Install()
+        print("NVIDIA Deep Learning AMI : | ami-0bc1398a752880427\n  Ubuntu 18.04 AMI : | ami-07c1207a9d40bc3bd")
         Deploy(input("Enter AMI id >>: "),int(input("Enter how many machines >>:")),input("Enter type >>: "))
 
     elif choose == "3":
