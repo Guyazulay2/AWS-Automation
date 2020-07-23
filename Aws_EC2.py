@@ -11,7 +11,8 @@ def Deploy(id,num,type):
     MinCount = 1,
     MaxCount = num,
     InstanceType=type,
-    KeyName="guykort")
+    SecurityGroups='NVIDIA Deep Learning AMI-20-03-1-AutogenByAWSMP-',
+    KeyName="Newkey")
     print('New instanceID IS >>: ' + instance[0].id)
 
 def Stop():
@@ -82,7 +83,7 @@ def Regions_name():
     return regions
 
 
-######### Menu #########
+####### Menu #########
 
 os.system("clear")
 while True:
@@ -91,8 +92,8 @@ while True:
         ***** AWS Script *****
      *****                 ******
 """)
-    print("""1|all AWS services from your account\n2|Deploy machines\n3|stop Instances\n4|start Instances\n5|reboot Instances\n
-6|Terminate Instances\n7|Show instances\n8|Show keys\n9|Show regions\n10|Exit""")
+    print("""1| AWS CLI\n2| Deploy machines\n3| stop Instances\n4| start Instances\n5| reboot Instances\n
+6| Terminate Instances\n7| Show instances\n8| Show keys\n9| Show regions\n10|Exit""")
     sleep(1)
     choose = input("Enter your choice >>:")
     if choose == "1":
@@ -101,7 +102,7 @@ while True:
 
     elif choose == "2":
         Get_key()
-        print(" Ubuntu 18.04 AMI: | ami-07c1207a9d40bc3bd\n Red Hat Enterprise Linux 8 AMI: | ami-0a54aef4ef3b5f881\n Microsoft Windows 2019 AMI: | ami-08db69d5de9dc9245")
+        print(" NVIDIA Deep Learning AMI : | ami-0bc1398a752880427\n  Ubuntu 18.04 AMI : | ami-07c1207a9d40bc3bd")
         Deploy(input("Enter AMI id >>: "),int(input("Enter how many machines >>:")),input("Enter type >>: "))
 
     elif choose == "3":
@@ -130,7 +131,7 @@ while True:
         Regions_name()
 
     elif choose == "10":
-        print("ByeBye")
+        print("Exit")
         break
 
     else:
